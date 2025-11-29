@@ -8,8 +8,8 @@ const more = ref(true);
 const songs = usesongstore();
 
 async function search() {
-  const single = q.value.match(/music\.163\.com\/#\/song\?id=(\d+)/);
-  const playlist = q.value.match(/music\.163\.com\/#\/playlist\?id=(\d+)/);
+  const single = q.value.match(/^https?:\/\/music\.163\.com\/.*?song\?id=(\d+)/);
+  const playlist = q.value.match(/^https?:\/\/music\.163\.com\/.*?playlist\?id=(\d+)/);
 
   if (single) {
     const res: any = await useFetch(api.netease.detail(single[1]));
